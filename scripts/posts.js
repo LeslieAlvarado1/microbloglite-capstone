@@ -4,9 +4,14 @@
 
 document.addEventListener("DOMContentLoaded", (event) => {
   const profileImages = [
-    "profile1.jpg",
-    "profile2.jpg",
-    "profile3.jpg",
+    "https://media.istockphoto.com/id/1419922260/photo/3d-render-of-a-cat-playing-video-games-with-a-vr-headset.webp?b=1&s=170667a&w=0&k=20&c=cOMTzhJgUbE_GRZUturqnUoZff1wEvSaiRNYD3Nc1HQ=",
+    "https://media.istockphoto.com/id/879267420/photo/funny-dog-wearing-ski-goggles-christmas-concept.webp?b=1&s=170667a&w=0&k=20&c=ySR_QDd2czgUTHObV0Ja6_o0GVVlmrYf3BoDfjQLyrk=",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR7eEB2QjfuiAWOPy3B1iF6udQ8q7pJR9CRWjlm2vAdjyyu8E69Z3uh3Of8W3C0wYU2Mk&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu64lKTfGwfl8C3cKLThixyO53rsj-qe892A&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuuabpnD2M-DqCbEiCKmsOfbOLo-d3oUNuAg&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfV-991JcCVPLiw7AOJgHWWXBSVOD2JxQ5cg&s",
+
+
     // Add as many images as you have
   ];
 
