@@ -37,11 +37,11 @@
     <main>
         <div class="overlay-container">
             <div class="overlay">
-                <button id="showContentButtonLogIn" type="button">Log In</button>
-                <button id="showContentButtonSignUp" type="button">Sign Up</button>
+                <button class="overlayButtons" id="showContentButtonLogIn" type="button">Log In</button>
+                <button class="overlayButtons" id="showContentButtonSignUp" type="button">Sign Up</button>
             </div>
         </div>
-        <div class="container hidden">
+        <div class="container">
             <!-- Existing content (login form, etc.) goes here -->
             <div class="form-container sign-in-container">
                 <form id="login">
@@ -50,23 +50,21 @@
                         <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control" name="username" id="username" minlength="3" required>
                     </div>
-    
+
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" minlength="6" required>
+                        <input type="password" class="form-control" name="password" id="password" minlength="6"
+                            required>
                     </div>
-    
+
                     <div class="button-container">
                         <button id="loginButton" type="submit">Login</button>
                     </div>
                 </form>
             </div>
-           <!-- <div class="sign-up-container">
-                <button onclick="window.location.href = 'signUp.html';">Sign Up</button>
-            </div> -->
         </div>
+
     </main>
-    <footer></footer>
 
     <!-- Page-specific code -->
     <script src="scripts/landing.js"></script>

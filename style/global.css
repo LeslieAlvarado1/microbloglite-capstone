@@ -17,3 +17,8 @@
     font-size: 1rem;
 }
 
+
+.overlayButtons:hover {
+    background-color: #d63384;
+    border-radius: 6px;
+}

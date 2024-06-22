@@ -31,13 +31,16 @@
 
     <header>
         <h1>Profile Page </h1>
-        <button id="logoutButton" type="submit" onclick="logout()">Logout</button>
+        <div class="d-flex align-items-center">
+            <button type="submit" onclick="window.location.href = 'posts.html'">Home</button>
+            <button id="logoutButton" type="submit" onclick="logout()">Logout</button>
+        </div>
     </header>
 
     <main></main>
-
-    <footer></footer>
-
+    <footer class="bg-light text-center py-3 mt-4">
+        <p>&copy; 2024 PingPost. All rights reserved.</p>
+    </footer>
     <!-- Page-specific code -->
     <script src="scripts/auth.js"></script>
 </body>
