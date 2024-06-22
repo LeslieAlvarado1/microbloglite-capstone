@@ -17,15 +17,12 @@
     <link rel="stylesheet" href="style/global.css">
 
     <!-- Page-specific CSS -->
-    <link rel="stylesheet" href="style/landing.css">
+    <link rel="stylesheet" href="style/signUp.css">
 
-    <title>Login to the Microblog Network!</title>
+    <title>Sign Up for the Microblog Network!</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
     <script src="scripts/auth.js"></script>
-    <script>
-        if (isLoggedIn() === true) window.location.replace("posts.html");
-    </script>
 </head>
 
 <body>
@@ -35,41 +32,39 @@
     </header>
 
     <main>
-        <div class="overlay-container">
-            <div class="overlay">
-                <button id="showContentButtonLogIn" type="button">Log In</button>
-                <button id="showContentButtonSignUp" type="button">Sign Up</button>
-            </div>
-        </div>
-        <div class="container hidden">
-            <!-- Existing content (login form, etc.) goes here -->
-            <div class="form-container sign-in-container">
-                <form id="login">
-                    <h2>Log In</h2>
+        <div class="container">
+            <div class="form-container sign-up-container">
+                <form id="signup">
+                    <h2>Sign Up</h2>
                     <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" name="username" id="username" minlength="3" required>
+                        <label for="signup-fullname" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="signup-fullname" name="fullname">
                     </div>
-    
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" minlength="6" required>
+                        <label for="signup-username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="signup-username" name="username" minlength="3">
                     </div>
-    
+                    <div class="mb-3">
+                        <label for="signup-password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="signup-password" name="password" minlength="6"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signup-email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="signup-email" name="email">
+                    </div>
                     <div class="button-container">
-                        <button id="loginButton" type="submit">Login</button>
+                        <button id="signUpButton" type="submit">Sign Up</button>
                     </div>
                 </form>
             </div>
-           <!-- <div class="sign-up-container">
-                <button onclick="window.location.href = 'signUp.html';">Sign Up</button>
-            </div> -->
         </div>
     </main>
+
     <footer></footer>
 
     <!-- Page-specific code -->
-    <script src="scripts/landing.js"></script>
+    <script src="scripts/signUp.js"></script>
 </body>
 
 </html>
