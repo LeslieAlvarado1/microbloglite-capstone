@@ -123,6 +123,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 const isLiked = post.likes.includes(loginData.username);
 
                 if (isLiked) {
+                  // Optimistically update UI
+                  post.likes = post.likes.filter(
+                    (username) => username !== loginData.username
+                  );
+                  likeCount.textContent = post.likes.length;
+                  likeButton.classList.remove("liked");
+
+                  // Send request to remove like
                   fetch(
                     `http://microbloglite.us-east-2.elasticbeanstalk.com/api/likes/${post._id}`,
                     {
@@ -133,19 +141,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
                       },
                     }
                   )
-                    .then((response) => response.json())
+                    .then((response) => {
+                      if (!response.ok) {
+                        // If there was an error, revert the UI changes
+                        post.likes.push(loginData.username);
+                        likeCount.textContent = post.likes.length;
+                        likeButton.classList.add("liked");
+                        throw new Error("Error removing like");
+                      }
+                      return response.json();
+                    })
                     .then(() => {
-                      post.likes = post.likes.filter(
-                        (username) => username !== loginData.username
-                      );
-                      likeCount.textContent = post.likes.length;
-                      likeButton.classList.remove("liked");
                       console.log("Removed like:", post._id);
                     })
                     .catch((error) =>
                       console.error("Error removing like:", error)
                     );
                 } else {
+                  // Optimistically update UI
+                  post.likes.push(loginData.username);
+                  likeCount.textContent = post.likes.length;
+                  likeButton.classList.add("liked");
+
+                  // Send request to add like
                   fetch(
                     "http://microbloglite.us-east-2.elasticbeanstalk.com/api/likes",
                     {
@@ -158,11 +176,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
                       body: JSON.stringify({ postId: post._id }),
                     }
                   )
-                    .then((response) => response.json())
+                    .then((response) => {
+                      if (!response.ok) {
+                        // If there was an error, revert the UI changes
+                        post.likes = post.likes.filter(
+                          (username) => username !== loginData.username
+                        );
+                        likeCount.textContent = post.likes.length;
+                        likeButton.classList.remove("liked");
+                        throw new Error("Error adding like");
+                      }
+                      return response.json();
+                    })
                     .then(() => {
-                      post.likes.push(loginData.username);
-                      likeCount.textContent = post.likes.length;
-                      likeButton.classList.add("liked");
                       console.log("Added like:", post._id);
                     })
                     .catch((error) =>

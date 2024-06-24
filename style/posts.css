@@ -27,13 +27,9 @@ body {
 }
 
 header {
-    background-color: #d63384; /* Match this with class="bg" */
+    background: linear-gradient( to right, #001b4df0, #4077d5b3);
     color: #fff; /* Match this with class="text-white" */
     padding: 10px 0; /* Adjust padding if necessary */
-}
-
-header img {
-    width: 40px; /* Adjust logo size if necessary */
 }
 
 header h1 {
