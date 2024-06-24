@@ -1,45 +1,100 @@
 /* SignUp Page CSS */
 
+body {
+    background: linear-gradient( to right, #001b4df0, #4077d5b3);
+}
+
 .container {
-    max-width: 800px; /* Adjust width as needed */
-    margin: 0 auto; /* Center horizontally */
-    position: relative;
-    z-index: 1; /* Ensure content is above overlay */
-    background-color: #ffffff; /* White background for content */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  max-width: 750px;
+  margin: 50px auto;
+  position: relative;
+  background: linear-gradient(120deg, #ffffff, #f0f0f0);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#main-header {
+  margin: 15px;
+}
+
+.home-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.home-button:hover {
+  background: linear-gradient(
+    120deg,
+    rgba(127, 127, 127, 0.723),
+    rgba(0, 0, 0, 0.617)
+  );
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+
+}
+
+h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #d63384;
+  width: 100%; /* Ensure the h2 tag takes up the full width */
+  text-align: center; /* Center the text horizontally */
 }
 
 /* Input fields */
 .form-control {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #d63384;
+  outline: none;
 }
 
 /* Submit button */
 #signUpButton {
-    width: 70%;
-    padding: 10px;
-    background-color: #d63384;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    display: inline-block; /* Ensure block-level element behaves like inline */
+  width: 100%;
+  padding: 15px;
+  background-color: #f2b5f2;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#signUpButton:hover {
+  background: linear-gradient(120deg, #ec74de, #c17bfe);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
 }
 
 .button-container {
-    text-align: center; /* Center inline or inline-block elements */
-}
-
-
-#signUpButton:hover {
-    background-color: #af0f5f;
-    border-radius: 5px;
+  text-align: center; /* Center inline or inline-block elements */
 }

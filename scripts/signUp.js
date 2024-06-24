@@ -3,6 +3,17 @@
 "use strict";
 
 const signUpForm = document.querySelector("#signup");
+const passwords = document.getElementById('signup');
+
+passwords.addEventListener('submit', function(event) {
+    let password = document.getElementById('signup-password').value;
+    let verifyPassword = document.getElementById('signup-verify-password').value;
+
+    if (password !== verifyPassword) {
+        alert('Passwords do not match!');
+        event.preventDefault(); // Prevent form submission
+    }
+});
 
 
 signUpForm.onsubmit = function(event) {
@@ -12,7 +23,7 @@ signUpForm.onsubmit = function(event) {
 
     const signUpData = {
         username: signUpForm.username.value,
-        fullName: signUpForm.fullname.value,  // Notice the case change here
+        fullName: signUpForm.fullname.value, 
         password: signUpForm.password.value,
     };
 
@@ -32,7 +43,7 @@ signUpForm.onsubmit = function(event) {
     })
     .then(response => {
         if (response.ok) {
-            return response.json();  // Assuming your API returns JSON
+            return response.json(); 
         }
         throw new Error('Network response was not ok.');
     })
