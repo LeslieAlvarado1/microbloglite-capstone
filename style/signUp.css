@@ -4,6 +4,19 @@ body {
     background: linear-gradient( to right, #001b4df0, #4077d5b3);
 }
 
+h1 {
+  color: #000;
+}
+
+code {
+  text-emphasis-style: initial; 
+  text-shadow: 
+    -1px -1px 0 #000000, 
+    1px -1px 0 #000, 
+    -1px 1px 0 #000, 
+    1px 1px 0 #000;
+}
+
 .container {
   max-width: 750px;
   margin: 50px auto;
