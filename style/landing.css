@@ -107,6 +107,17 @@ header {
   gap: 20px; /* Adds space between the buttons */
 }
 
+
+
+code {
+  text-emphasis-style: initial; 
+  text-shadow: 
+    -1px -1px 0 #000000, 
+    1px -1px 0 #000, 
+    -1px 1px 0 #000, 
+    1px 1px 0 #000;
+}
+
 #overlayTitle {
   font-family: "Space Grotesk", sans-serif;
   font-size: 3rem;
