@@ -41,7 +41,8 @@
                 <form id="signup">
                     <div class="header">
                         <h2>Sign Up</h2>
-                        <button type="button" class="home-button" onclick="window.location.href='index.html'">Home</button>
+                        <button type="button" class="home-button"
+                            onclick="window.location.href='index.html'">Home</button>
                     </div>
                     <div class="mb-3">
                         <label for="signup-fullname" class="form-label">Full Name</label>
@@ -49,7 +50,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="signup-username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="signup-username" name="username" minlength="3" required>
+                        <input type="text" class="form-control" id="signup-username" name="username" minlength="3"
+                            required>
                     </div>
                     <div class="mb-3">
                         <label for="signup-email" class="form-label">Email</label>
@@ -62,13 +64,29 @@
                     </div>
                     <div class="mb-3">
                         <label for="signup-verify-password" class="form-label">Verify Password</label>
-                        <input type="password" class="form-control" id="signup-verify-password" name="verifyPassword" minlength="6"
-                            required>
+                        <input type="password" class="form-control" id="signup-verify-password" name="verifyPassword"
+                            minlength="6" required>
                     </div>
                     <div class="button-container">
                         <button id="signUpButton" type="submit">Sign Up</button>
                     </div>
                 </form>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="statusModalLabel">Status</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="statusModalBody">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
