@@ -7,6 +7,7 @@ const showLogin = document.getElementById("showContentButtonLogIn");
 const showSignUp = document.getElementById("showContentButtonSignUp");
 const overlayContainer = document.querySelector(".overlay-container");
 const container = document.querySelector(".container");
+const header = document.querySelector("header");
 
 loginForm.onsubmit = function (event) {
   // Prevent the form from refreshing the page,
@@ -35,7 +36,8 @@ showLogin.addEventListener("click", function () {
   setTimeout(function () {
     overlayContainer.style.display = "none";
     container.style.display = "block";
-  }, 600); // Adjust delay (in milliseconds) to match transition duration
+    header.style.display = "block"; // Show header
+  }, 500); // Adjust delay (in milliseconds) to match transition duration
 });
 
 showSignUp.addEventListener("click", function (event) {
@@ -49,10 +51,14 @@ showSignUp.addEventListener("click", function (event) {
   setTimeout(function () {
     overlayContainer.style.display = "none";
     container.style.display = "none";
+    header.style.display = "block"; // Show header for consistency
   }, 500); // Adjust delay (in milliseconds) to match transition duration
 
   // Redirect to signup.html after overlay is hidden
   setTimeout(function () {
     window.location.href = "signUp.html";
-  }, 600); // Adjust delay as needed
+  }, 400); // Adjust delay as needed
 });
+
+// Initially hide the header
+header.style.display = "none";
