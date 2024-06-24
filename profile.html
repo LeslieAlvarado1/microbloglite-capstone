@@ -1,4 +1,3 @@
-<!-- POSTS page -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,19 +21,18 @@
     <link rel="stylesheet" href="style/global.css">
 
     <!-- Page-specific CSS -->
-    <link rel="stylesheet" href="style/posts.css">
+    <link rel="stylesheet" href="style/profile.css">
 
     <title>PingPost Profile</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
-    <script src="scripts/posts.js"></script>
+    <script src="scripts/profile.js"></script>
     <script>
-        if (isLoggedIn() === false) window.location.replace("index.html");
+        // if (isLoggedIn() === false) window.location.replace("index.html");
     </script>
 </head>
 
 <body>
-
     <header class="bg text-white p-3">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
@@ -47,12 +45,50 @@
         </div>
     </header>
 
-    <main></main>
+    <main>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <img id="userImage"
+                                src="https://media.istockphoto.com/id/1419922260/photo/3d-render-of-a-cat-playing-video-games-with-a-vr-headset.webp?b=1&s=170667a&w=0&k=20&c=cOMTzhJgUbE_GRZUturqnUoZff1wEvSaiRNYD3Nc1HQ="
+                                class="rounded-circle mb-3" alt="Profile Picture" width="100">
+                            <h4 id="username"></h4>
+                            <p class="text-muted" id="bio"></p>
+                            <div class="d-flex justify-content-around mb-3">
+                                <div>
+                                    <h5 id="followingCount">134</h5>
+                                    <p>Following</p>
+                                </div>
+                                <div>
+                                    <h5 id="followersCount">185</h5>
+                                    <p>Followers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 main-content">
+                    <div id="textSection">
+                        <p>This is a section of text to provide some information about the user or the content.</p>
+                    </div>
+                    <div id="photoGallery"  class="row justify-content-center">
+                        <!-- Photos will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
     <footer class="bg-light text-center py-3 mt-4">
         <p>&copy; 2024 PingPost. All rights reserved.</p>
     </footer>
-    <!-- Page-specific code -->
-    <script src="scripts/auth.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
