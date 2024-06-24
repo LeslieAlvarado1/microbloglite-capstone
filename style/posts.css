@@ -1,10 +1,9 @@
-/* Posts Page CSS */
+/* Existing CSS rules */
 
 html, body {
     height: 100%;
     margin: 0;
 }
-
 
 .main-content {
     height: calc(100vh - 80px); /* Adjust based on header and footer height */
@@ -19,7 +18,7 @@ html, body {
 }
 
 .liked {
-    color: #ff0000; /* Change this to the desired color */
+    background: linear-gradient(120deg, #ec74de, #c17bfe); /* Change this to the desired color */
     font-weight: bold;
 }
 
@@ -28,54 +27,46 @@ body {
 }
 
 header {
-    background-color: #d63384;
-    color: #fff;
-    padding: 10px 0;
+    background-color: #d63384; /* Match this with class="bg" */
+    color: #fff; /* Match this with class="text-white" */
+    padding: 10px 0; /* Adjust padding if necessary */
 }
 
 header img {
-    width: 40px;
+    width: 40px; /* Adjust logo size if necessary */
 }
 
 header h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 24px; /* Adjust font size if necessary */
 }
 
-header input[type="search"] {
-    width: 200px;
+/* Add button styling if not already included */
+
+.headerButtons {
+    background-color: #debbde; /* Example background color */
+    color: #000000; /* Text color */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card {
-    border: none;
-    margin-bottom: 20px;
+.headerButtons:hover {
+    background: linear-gradient(120deg, #ec74de, #c17bfe);
+    border-radius: 3px;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.card-body {
-    padding: 20px;
+.btn {
+    background-color: #debbde; /* Example background color */
+    color: #000000; /* Text color */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-body img {
-    width: 60px;
-    height: 60px;
-}
-
-.card-body h4, .card-body h5 {
-    margin: 0;
-}
-
-.card-body p {
-    margin-top: 10px;
-    color: #888;
-}
-
-.badge {
-    margin-right: 5px;
-    font-size: 12px;
-}
-
-footer {
-    background-color: #fff;
-    color: #888;
-    padding: 20px 0;
+.btn:hover {
+    background: linear-gradient(120deg, #ec74de, #c17bfe);
+    border-radius: 3px;
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
