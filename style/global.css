@@ -17,8 +17,10 @@
     font-size: 1rem;
 }
 
-
-.overlayButtons:hover {
-    background-color: #d63384;
-    border-radius: 6px;
+body {
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }
+
