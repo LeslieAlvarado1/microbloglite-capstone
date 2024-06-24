@@ -23,15 +23,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
   };
 
   const fetchUserInfo = (username) => {
-    return fetch(
-      `http://microbloglite.us-east-2.elasticbeanstalk.com/api/users/${username}`,
-      {
-        headers: {
-          accept: "application/json",
-          Authorization: `Bearer ${loginData.token}`,
-        },
-      }
-    ).then((response) => response.json());
+    const apiBaseURL = "http://microbloglite.us-east-2.elasticbeanstalk.com";
+    return fetch(`${apiBaseURL}/api/users/${username}`, {
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${loginData.token}`,
+      },
+    }).then((response) => response.json());
+  };
+
+   const updateProfileSection = () => {
+    fetchUserInfo(loginData.username)
+      .then((userInfo) => {
+        document.getElementById("username").textContent = userInfo.username;
+        document.getElementById("bio").textContent = userInfo.bio || "No bio available.";
+      })
+      .catch((error) => console.error("Error fetching user info:", error));
   };
 
   const fetchPosts = () => {
@@ -45,47 +52,48 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }
     )
       .then((response) => response.json())
-      .then((posts) => {
+      .then((data) => {
+        const posts = Array.isArray(data) ? data : [];
         const postsContainer = document.querySelector("#postsContainer");
         postsContainer.innerHTML = ""; // Clear existing content
-
+  
         posts.forEach((post) => {
           fetchUserInfo(post.username)
             .then((userInfo) => {
               const postElement = document.createElement("div");
               postElement.classList.add("card", "mb-4");
-
+  
               const cardBody = document.createElement("div");
               cardBody.classList.add("card-body");
-
+  
               const userDiv = document.createElement("div");
               userDiv.classList.add("d-flex", "mb-3");
-
+  
               const profileImg = document.createElement("img");
               profileImg.src = getRandomProfileImage(); // Assign a random profile image
               profileImg.classList.add("rounded-circle", "me-3");
               profileImg.alt = "Profile Picture";
               profileImg.width = 50;
-
+  
               const userInfoDiv = document.createElement("div");
-
+  
               const usernameH5 = document.createElement("h5");
               usernameH5.classList.add("mb-0");
               usernameH5.id = "username";
               usernameH5.textContent = post.username;
-
+  
               const postTime = document.createElement("small");
               postTime.classList.add("text-muted");
               postTime.textContent = new Date(post.createdAt).toLocaleString();
-
+  
               userInfoDiv.appendChild(usernameH5);
               userInfoDiv.appendChild(postTime);
-
+  
               userDiv.appendChild(profileImg);
               userDiv.appendChild(userInfoDiv);
-
+  
               cardBody.appendChild(userDiv);
-
+  
               if (userInfo.bio) {
                 const bioTextH5 = document.createElement("h5");
                 bioTextH5.id = "bio";
@@ -93,21 +101,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 bioTextH5.textContent = userInfo.bio;
                 cardBody.appendChild(bioTextH5);
               }
-
+  
               const postContentP = document.createElement("p");
               postContentP.classList.add("mt-3");
               postContentP.id = "post";
               postContentP.textContent = post.text;
-
+  
               const interactionDiv = document.createElement("div");
               interactionDiv.classList.add(
                 "d-flex",
                 "justify-content-between",
                 "align-items-center"
               );
-
+  
               const likeDiv = document.createElement("div");
-
+  
               const likeButton = document.createElement("button");
               likeButton.classList.add("btn", "btn-light");
               if (post.likes.includes(loginData.username)) {
@@ -117,11 +125,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 '<i class="bi bi-heart" id="likes"></i> Like';
               const likeCount = document.createElement("span");
               likeCount.textContent = post.likes.length;
-
+  
               // Toggle like status
               likeButton.addEventListener("click", () => {
                 const isLiked = post.likes.includes(loginData.username);
-
+  
                 if (isLiked) {
                   // Optimistically update UI
                   post.likes = post.likes.filter(
@@ -129,7 +137,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                   );
                   likeCount.textContent = post.likes.length;
                   likeButton.classList.remove("liked");
-
+                  likeButton.innerHTML = '<i class="bi bi-heart"></i> Like';
+  
                   // Send request to remove like
                   fetch(
                     `http://microbloglite.us-east-2.elasticbeanstalk.com/api/likes/${post._id}`,
@@ -147,6 +156,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         post.likes.push(loginData.username);
                         likeCount.textContent = post.likes.length;
                         likeButton.classList.add("liked");
+                        likeButton.innerHTML =
+                          '<i class="bi bi-heart-fill"></i> Liked';
                         throw new Error("Error removing like");
                       }
                       return response.json();
@@ -162,7 +173,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
                   post.likes.push(loginData.username);
                   likeCount.textContent = post.likes.length;
                   likeButton.classList.add("liked");
-
+                  likeButton.innerHTML =
+                    '<i class="bi bi-heart-fill"></i> Liked';
+  
                   // Send request to add like
                   fetch(
                     "http://microbloglite.us-east-2.elasticbeanstalk.com/api/likes",
@@ -184,6 +197,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         );
                         likeCount.textContent = post.likes.length;
                         likeButton.classList.remove("liked");
+                        likeButton.innerHTML =
+                          '<i class="bi bi-heart"></i> Like';
                         throw new Error("Error adding like");
                       }
                       return response.json();
@@ -196,16 +211,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     );
                 }
               });
-
               likeDiv.appendChild(likeButton);
               likeDiv.appendChild(likeCount);
-
+  
               interactionDiv.appendChild(likeDiv);
-
+  
               cardBody.appendChild(postContentP);
               cardBody.appendChild(document.createElement("hr"));
               cardBody.appendChild(interactionDiv);
-
+  
               postElement.appendChild(cardBody);
               postsContainer.appendChild(postElement);
             })
@@ -216,10 +230,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
       })
       .catch((error) => console.error("Error fetching posts:", error));
   };
-
   // Fetch and display posts on page load
   fetchPosts();
-
+  updateProfileSection();
+  
   // Handle new post submission
   document.getElementById("postButton").addEventListener("click", () => {
     const postText = document.getElementById("newPostText").value;

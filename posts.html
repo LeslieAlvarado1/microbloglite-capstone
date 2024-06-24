@@ -31,7 +31,7 @@
  <script src="scripts/auth.js"></script>
     <script src="scripts/posts.js"></script>
     <script>
-        if (isLoggedIn() === false) window.location.replace("index.html");
+        // if (isLoggedIn() === false) window.location.replace("index.html");
     </script>
 </head>
 
@@ -54,16 +54,18 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <img src="https://media.istockphoto.com/id/1419922260/photo/3d-render-of-a-cat-playing-video-games-with-a-vr-headset.webp?b=1&s=170667a&w=0&k=20&c=cOMTzhJgUbE_GRZUturqnUoZff1wEvSaiRNYD3Nc1HQ=" class="rounded-circle mb-3" alt="Profile Picture" width="100">
-                        <h4 id="username">username</h4>
-                        <p class="text-muted" id="bio"> "bio" Graphic Designer at Self Employed</p>
+                        <img id="userImage"
+                             src="https://media.istockphoto.com/id/1419922260/photo/3d-render-of-a-cat-playing-video-games-with-a-vr-headset.webp?b=1&s=170667a&w=0&k=20&c=cOMTzhJgUbE_GRZUturqnUoZff1wEvSaiRNYD3Nc1HQ="
+                             class="rounded-circle mb-3" alt="Profile Picture" width="100">
+                        <h4 id="username"></h4>
+                        <p class="text-muted" id="bio"></p>
                         <div class="d-flex justify-content-around mb-3">
                             <div>
-                                <h5>134</h5>
+                                <h5 id="followingCount">134</h5>
                                 <p>Following</p>
                             </div>
                             <div>
-                                <h5>185</h5>
+                                <h5 id="followersCount">185</h5>
                                 <p>Followers</p>
                             </div>
                         </div>
@@ -78,7 +80,7 @@
                 <div class="card mb-4 new-post-card">
                     <div class="card-body">
                         <textarea id="newPostText" class="form-control mb-3" rows="3"
-                            placeholder="What's on your mind?"></textarea>
+                            placeholder="What's on your mind? Write a post here."></textarea>
                         <button id="postButton" class="btn">Post</button>
                     </div>
                 </div>

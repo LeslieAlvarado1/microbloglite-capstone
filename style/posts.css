@@ -22,6 +22,14 @@ html, body {
     font-weight: bold;
 }
 
+.btn {
+    margin-right : 15px;
+}
+
+.like-count {
+    margin-right : 15px; /* Add space between button and like count */
+}
+
 body {
     background-color: #f5f5f5;
 }
@@ -30,11 +38,6 @@ header {
     background: linear-gradient( to right, #001b4df0, #4077d5b3);
     color: #fff; /* Match this with class="text-white" */
     padding: 10px 0; /* Adjust padding if necessary */
-}
-
-header h1 {
-    margin: 0;
-    font-size: 24px; /* Adjust font size if necessary */
 }
 
 /* Add button styling if not already included */
