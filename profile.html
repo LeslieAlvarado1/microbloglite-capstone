@@ -35,11 +35,15 @@
 
 <body>
 
-    <header>
-        <h1>Profile Page </h1>
-        <div class="d-flex align-items-center">
-            <button type="submit" onclick="window.location.href = 'posts.html'">Home</button>
-            <button id="logoutButton" type="submit" onclick="logout()">Logout</button>
+    <header class="bg text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <h1 style="font-style: italic;">PingPost</h1>
+            </div>
+            <div>
+                <button class="headerButtons" type="submit" onclick="window.location.href = 'posts.html'">Home</button>
+                <button class="headerButtons" id="logoutButton" type="submit" onclick="logout()">Logout</button>
+            </div>
         </div>
     </header>
 
