@@ -1,6 +1,28 @@
 /* Posts Page CSS */
 
-/* Add custom styles specific to the posts page */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+
+.main-content {
+    height: calc(100vh - 80px); /* Adjust based on header and footer height */
+    overflow-y: auto;
+}
+
+.new-post-card {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+}
+
+.liked {
+    color: #ff0000; /* Change this to the desired color */
+    font-weight: bold;
+}
+
 body {
     background-color: #f5f5f5;
 }
