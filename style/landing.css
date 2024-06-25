@@ -105,9 +105,8 @@ header {
   justify-content: center;
   align-items: center;
   gap: 20px; /* Adds space between the buttons */
+  margin-top: 25px;
 }
-
-
 
 code {
   text-emphasis-style: initial; 
@@ -120,7 +119,7 @@ code {
 
 #overlayTitle {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: 400;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   z-index: 1;
@@ -128,6 +127,10 @@ code {
 }
 
 .overlayButtons {
+  padding: 10px 30px; /* Increases the padding around the text */
+  font-size: 12px; /* Increases the font size */
+  width: auto; 
+  height: auto; 
   background-color: #debbde;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
