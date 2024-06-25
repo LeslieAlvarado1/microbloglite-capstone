@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               const likeDiv = document.createElement("div");
 
               const likeButton = document.createElement("button");
-              likeButton.classList.add("btn", "btn-light");
+              likeButton.classList.add("btn");
               if (post.likes.includes(loginData.username)) {
                 likeButton.classList.add("liked");
               }
@@ -286,6 +286,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.body.style.background = savedStyle;
   }
 
+  const savedTheme = localStorage.getItem('theme') || 'light-mode';
+  document.body.classList.add(savedTheme);
+
   document.getElementById("sadButton").addEventListener("click", function () {
     applyBackgroundStyle('linear-gradient(to right, #264050, #433470)');
   });
@@ -302,3 +305,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
     applyBackgroundStyle('white');
   });
   });
+
+  function setLightMode() {
+    document.body.classList.add('light-mode');
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('theme', 'light-mode');
+}
+
+function setDarkMode() {
+    document.body.classList.add('dark-mode');
+    document.body.classList.remove('light-mode');
+    localStorage.setItem('theme', 'dark-mode');
+}

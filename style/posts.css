@@ -5,6 +5,9 @@ html, body {
     margin: 0;
 }
 
+.card {
+    background-color: rgba(255, 255, 255, 0.838);
+}
 .main-content {
     height: calc(100vh - 80px); /* Adjust based on header and footer height */
     overflow-y: auto;
@@ -26,13 +29,27 @@ html, body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+
+/* Dark Mode */
+.dark-mode .card {
+    background-color: #363333d2;
+    color: rgb(255, 255, 255);
+}
+
+.dark-mode .text-muted {
+    color: white !important; /* Override muted text color in dark mode */
+}
+
+
+.light-mode .card {
+    background-color: rgba(255, 255, 255, 0.838);
+    color: rgb(0, 0, 0)
+}
+
+
 .liked {
     background: linear-gradient(120deg, #ec74de, #c17bfe); /* Change this to the desired color */
     font-weight: bold;
-}
-
-.btn {
-    margin-right : 15px;
 }
 
 .like-count {
@@ -74,10 +91,12 @@ footer {
     color: #000000; /* Text color */
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right : 15px;
 }
 
 .btn:hover {
     background: linear-gradient(120deg, #ec74de, #c17bfe);
+    color: #000000; /* Text color */
     border-radius: 3px;
     transform: scale(1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
