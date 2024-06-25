@@ -27,8 +27,8 @@
     <title>PingPost Home</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
-     <!-- Page-specific code -->
- <script src="scripts/auth.js"></script>
+    <!-- Page-specific code -->
+    <script src="scripts/auth.js"></script>
     <script src="scripts/posts.js"></script>
     <script>
         // if (isLoggedIn() === false) window.location.replace("index.html");
@@ -39,10 +39,16 @@
     <header class="bg text-white p-3">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-                <h1 style="font-style: italic;">PingPost</h1>
+                <h1 style="font-style: italic; text-emphasis-style: initial; 
+                text-shadow: 
+                  -1px -1px 0 #000000, 
+                  1px -1px 0 #000, 
+                  -1px 1px 0 #000, 
+                  1px 1px 0 #000;">PingPost</h1>
             </div>
             <div>
-                <button class="headerButtons" type="submit" onclick="window.location.href = 'profile.html'">Profile</button>
+                <button class="headerButtons" type="submit"
+                    onclick="window.location.href = 'profile.html'">Profile</button>
                 <button class="headerButtons" id="logoutButton" type="submit" onclick="logout()">Logout</button>
             </div>
         </div>
@@ -55,8 +61,8 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <img id="userImage"
-                             src="https://media.istockphoto.com/id/1419922260/photo/3d-render-of-a-cat-playing-video-games-with-a-vr-headset.webp?b=1&s=170667a&w=0&k=20&c=cOMTzhJgUbE_GRZUturqnUoZff1wEvSaiRNYD3Nc1HQ="
-                             class="rounded-circle mb-3" alt="Profile Picture" width="100">
+                            src="https://media.istockphoto.com/id/1419922260/photo/3d-render-of-a-cat-playing-video-games-with-a-vr-headset.webp?b=1&s=170667a&w=0&k=20&c=cOMTzhJgUbE_GRZUturqnUoZff1wEvSaiRNYD3Nc1HQ="
+                            class="rounded-circle mb-3" alt="Profile Picture" width="100">
                         <h4 id="username"></h4>
                         <p class="text-muted" id="bio"></p>
                         <div class="d-flex justify-content-around mb-3">
@@ -71,6 +77,13 @@
                         </div>
                         <a href="profile.html" class="btn w-100">View Profile</a>
                     </div>
+                </div>
+                <div id="mood-buttons">
+                    <button id="happyButton" class="btn w-100 mb-2">Happy</button>
+                    <button id="boredButton" class="btn w-100">Bored</button>
+                    <button id="sadButton" class="btn w-100 mb-2">Sad</button>
+                    <button id="noneButton" class="btn w-100 mb-2">Default</button>
+
                 </div>
             </div>
 
@@ -87,7 +100,12 @@
                 <!-- End of New Post Input -->
 
                 <!-- Posts will be inserted here -->
-                <h2 style="text-align: center;">Posts</h2>
+                <h2 style="text-align: center; text-emphasis-style: initial; 
+                text-shadow: 
+                  -1px -1px 0 #ffffff, 
+                  1px -1px 0 #ffffff, 
+                  -1px 1px 0 #ffffff, 
+                  1px 1px 0 #ffffff;" >Posts</h2>
                 <div id="postsContainer">
                     <!-- Existing posts content will be dynamically inserted here -->
                 </div>

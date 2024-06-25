@@ -17,6 +17,15 @@ html, body {
     background-color: white;
 }
 
+#mood-buttons {
+    margin-top: 50px;
+}
+
+#mood-buttons button {
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
 .liked {
     background: linear-gradient(120deg, #ec74de, #c17bfe); /* Change this to the desired color */
     font-weight: bold;
@@ -40,6 +49,10 @@ header {
     padding: 10px 0; /* Adjust padding if necessary */
 }
 
+footer {
+    background: linear-gradient( to right, #001b4df0, #4077d5b3);
+    color: #fff; /* Match this with class="text-white" */
+}
 /* Add button styling if not already included */
 
 .headerButtons {
