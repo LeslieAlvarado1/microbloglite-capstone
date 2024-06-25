@@ -10,9 +10,13 @@ footer {
 }
 
 .main-content {
-  height: calc(100vh - 100px); /* Adjust according to the header and footer height */
+  height: calc(150vh - 30px); /* Adjust according to the header and footer height */
   overflow-y: auto; /* Allow vertical scrolling */
   padding: 20px; /* Optional: Add padding for better spacing */
+}
+
+.mood-board {
+  flex-grow: 1;
 }
 
 #photoGallery img {
@@ -36,4 +40,34 @@ footer {
   border-radius: 3px;
   transform: scale(1.1);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+  background-color: #debbde; /* Example background color */
+  color: #000000; /* Text color */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(120deg, #ec74de, #c17bfe);
+  color: #000000; /* Text color */
+  border-radius: 5px;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark Mode */
+.dark-mode .card {
+  background-color: #363333d2;
+  color: white;
+}
+
+.dark-mode .text-muted {
+  color: white !important; /* Override muted text color in dark mode */
+}
+
+.light-mode .card {
+  background-color: rgba(255, 255, 255, 0.838);
+  color: black;
 }

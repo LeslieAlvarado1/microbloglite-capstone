@@ -73,18 +73,48 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Travel Wishlist Card -->
                     <div class="card mt-4">
                         <div class="card-body text-center">
                             <p style="text-align: center;">Travel Wishlist</p>
+                            <hr>
                             <img id="randomGif" src="gif1.gif" alt="Random GIF" width="100%">
+                            <div class="input-group mt-3">
+                                <input type="text" class="form-control" id="travelWishlistInput" placeholder="Add an image link">
+                                <button class="btn" id="updateWishlistButton">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Aspiring Goals Card -->
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <p style="text-align: center;">Aspiring Goals</p>
+                            <hr>
+                            <ul>
+                                <li>Learn a new language</li>
+                                <li>Travel to 10 new countries</li>
+                                <li>Run a marathon</li>
+                                <li>Read 50 books in a year</li>
+                                <li>Start a blog</li>
+                                <li>Learn to play a musical instrument</li>
+                            </ul>
+                            <div class="input-group mt-3">
+                                <input type="text" class="form-control" id="travelWishlistInput" placeholder="Add a goal">
+                                <button class="btn btn" id="updateWishlistButton">Update</button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8 main-content card">
                     <div id="textSection">
                         <p style="text-align: center;">Mood Board</p>
+                        <hr>
+                        <div class="input-group mt-3" style="margin-bottom: 15px;">
+                            <input type="text" class="form-control" id="moodBoardInput" placeholder="Add an image link">
+                            <button class="btn" id="updateMoodBoardButton">Update</button>
+                        </div>
                     </div>
-                    <div id="photoGallery"  class="row justify-content-center">
+                    <div id="photoGallery" class="row justify-content-center">
                         <!-- Photos will be dynamically inserted here -->
                     </div>
                 </div>

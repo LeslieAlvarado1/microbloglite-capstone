@@ -60,8 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWxja2ZlZWk0NngwdTk3bWdxajlkNjBiM255d3Nwc3JkczZsaTA1dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TdMVH60kJvTMI/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWMweXh0bm9yM3dkc2hlaG05cnh5eGNlaDEzeGRzdm1oNHN2Nno2YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13JAvS2OyKJDry/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHo0eDAzdXZxaTNxODcxaHMwa2szOHp0OWdpNzd0bmx2ZGs1ZWd2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qLtUw3xX61PHiJKxWD/giphy.gif",   
+    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm9idWpleWY5ZG01NDFoenY4bmRlMzZwa3lkemhqcGdldzBwZ3d3dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6qFFgNgextP9u/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG02cGNmY3M5MHN0cm1wcWdjOGxvczhqYmFpYnJyZm9yaTgxOXc1bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nIJca2o6axtMk/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExY25naWI3NWpqejk3anlkOTI2YzV4ZGtnNWpwOHM0dXNwMjh0c2c1eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/deOKie3HCHOAo/giphy.gif",
+    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWg0eHN4cjlwazYwcWVnYWZoN3E4ZjhycjY3aGpxMjRpZWlsNWE3MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0K4jV7FRv4ymQO52/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2V4NWhlOWR0ZDZxZjB0OGF1c3pidjd2Nm05ZHUyMWwxaWh6ejNkYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5HSYaZTcRpYnS/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnR5MWt0Z2ttMnAwa2txd3NsMmxyMmFzcG9xOWpuNzZoemNyNXB6cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JlPFFRHrCCDlo5LjU5/giphy.gif",
   ];
@@ -83,6 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
   if (savedStyle) {
     document.body.style.background = savedStyle;
   }
+  
+  // Apply saved theme on page load
+  const savedTheme = localStorage.getItem('theme') || 'light-mode';
+  document.body.classList.add(savedTheme);
+
 });
 
 function getLoginData() {
