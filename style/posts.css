@@ -3,61 +3,7 @@
 html, body {
     height: 100%;
     margin: 0;
-}
-
-.card {
-    background-color: rgba(255, 255, 255, 0.838);
-}
-.main-content {
-    height: calc(100vh - 80px); /* Adjust based on header and footer height */
-    overflow-y: auto;
-}
-
-.new-post-card {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: white;
-}
-
-#mood-buttons {
-    margin-top: 50px;
-}
-
-#mood-buttons button {
-    margin-bottom: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-
-/* Dark Mode */
-.dark-mode .card {
-    background-color: #363333d2;
-    color: rgb(255, 255, 255);
-}
-
-.dark-mode .text-muted {
-    color: white !important; /* Override muted text color in dark mode */
-}
-
-
-.light-mode .card {
-    background-color: rgba(255, 255, 255, 0.838);
-    color: rgb(0, 0, 0)
-}
-
-
-.liked {
-    background: linear-gradient(120deg, #ec74de, #c17bfe); /* Change this to the desired color */
-    font-weight: bold;
-}
-
-.like-count {
-    margin-right : 15px; /* Add space between button and like count */
-}
-
-body {
-    background-color: #f5f5f5;
+    background-color: linear-gradient( to right, #001b4df0, #4077d5b3);
 }
 
 header {
@@ -70,7 +16,58 @@ footer {
     background: linear-gradient( to right, #001b4df0, #4077d5b3);
     color: #fff; /* Match this with class="text-white" */
 }
-/* Add button styling if not already included */
+
+.card {
+    background-color: rgba(255, 255, 255, 0.838);
+}
+
+.main-content {
+    height: calc(100vh - 80px); /* Adjust based on header and footer height */
+    overflow-y: auto;
+}
+
+.new-post-card {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+}
+
+/* Personalized Modes */
+#mood-buttons {
+    margin-top: 50px;
+}
+
+#mood-buttons button {
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .card {
+    background-color: #363333d2;
+    color: rgb(255, 255, 255);
+}
+
+.dark-mode .text-muted {
+    color: white !important; 
+}
+
+.light-mode .card {
+    background-color: rgba(255, 255, 255, 0.838);
+    color: rgb(0, 0, 0)
+}
+
+/* Like button */
+.liked {
+    background: linear-gradient(120deg, #ec74de, #c17bfe); /* Change this to the desired color */
+    font-weight: bold;
+}
+
+.like-count {
+    margin-right : 15px; /* Add space between button and like count */
+}
+
+/* Button styling */
 
 .headerButtons {
     background-color: #debbde; /* Example background color */

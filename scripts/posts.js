@@ -117,7 +117,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
               const likeButton = document.createElement("button");
               likeButton.classList.add("btn");
-              if (post.likes.includes(loginData.username)) {
+              if (
+                post.likes.some((like) => like.username === loginData.username)
+              ) {
                 likeButton.classList.add("liked");
               }
               likeButton.innerHTML =
@@ -127,12 +129,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
               // Toggle like status
               likeButton.addEventListener("click", () => {
-                const isLiked = post.likes.includes(loginData.username);
+                const isLiked = post.likes.some(
+                  (like) => like.username === loginData.username
+                );
 
                 if (isLiked) {
+                  const like = post.likes.find(
+                    (like) => like.username === loginData.username
+                  );
                   // Optimistically update UI
                   post.likes = post.likes.filter(
-                    (username) => username !== loginData.username
+                    (like) => like.username !== loginData.username
                   );
                   likeCount.textContent = post.likes.length;
                   likeButton.classList.remove("liked");
@@ -140,7 +147,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
                   // Send request to remove like
                   fetch(
-                    `http://microbloglite.us-east-2.elasticbeanstalk.com/api/likes/${post._id}`,
+                    `http://microbloglite.us-east-2.elasticbeanstalk.com/api/likes/${like._id}`,
                     {
                       method: "DELETE",
                       headers: {
@@ -152,12 +159,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     .then((response) => {
                       if (!response.ok) {
                         // If there was an error, revert the UI changes
-                        post.likes.push(loginData.username);
+                        post.likes.push(like);
                         likeCount.textContent = post.likes.length;
                         likeButton.classList.add("liked");
                         likeButton.innerHTML =
                           '<i class="bi bi-heart-fill"></i> Liked';
-                        throw new Error("Error removing like");
+                        throw new Error(
+                          `Error removing like: ${response.statusText}`
+                        );
                       }
                       return response.json();
                     })
@@ -169,7 +178,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     );
                 } else {
                   // Optimistically update UI
-                  post.likes.push(loginData.username);
+                  post.likes.push({
+                    _id: null,
+                    username: loginData.username,
+                    postId: post._id,
+                  }); // Temporary like object
                   likeCount.textContent = post.likes.length;
                   likeButton.classList.add("liked");
                   likeButton.innerHTML =
@@ -192,18 +205,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
                       if (!response.ok) {
                         // If there was an error, revert the UI changes
                         post.likes = post.likes.filter(
-                          (username) => username !== loginData.username
+                          (like) => like.username !== loginData.username
                         );
                         likeCount.textContent = post.likes.length;
                         likeButton.classList.remove("liked");
                         likeButton.innerHTML =
                           '<i class="bi bi-heart"></i> Like';
-                        throw new Error("Error adding like");
+                        throw new Error(
+                          `Error adding like: ${response.statusText}`
+                        );
                       }
                       return response.json();
                     })
-                    .then(() => {
-                      console.log("Added like:", post._id);
+                    .then((newLike) => {
+                      console.log("Added like:", newLike._id);
+                      // Update the temporary like object with the real like ID
+                      const like = post.likes.find(
+                        (like) => like.username === loginData.username
+                      );
+                      like._id = newLike._id;
                     })
                     .catch((error) =>
                       console.error("Error adding like:", error)
@@ -281,39 +301,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
     localStorage.setItem("backgroundStyle", style);
   }
 
+  const savedTheme = localStorage.getItem("theme") || "light-mode";
+  document.body.classList.add(savedTheme);
+
   const savedStyle = localStorage.getItem("backgroundStyle");
   if (savedStyle) {
     document.body.style.background = savedStyle;
   }
 
-  const savedTheme = localStorage.getItem('theme') || 'light-mode';
-  document.body.classList.add(savedTheme);
-
   document.getElementById("sadButton").addEventListener("click", function () {
-    applyBackgroundStyle('linear-gradient(to right, #264050, #433470)');
+    applyBackgroundStyle("linear-gradient(to right, #264050, #433470)");
   });
 
   document.getElementById("happyButton").addEventListener("click", function () {
-    applyBackgroundStyle('linear-gradient(to right, #fbc2eb, #ccd18c)');
+    applyBackgroundStyle("linear-gradient(to right, #fbc2eb, #ccd18c)");
   });
 
   document.getElementById("boredButton").addEventListener("click", function () {
-    applyBackgroundStyle('linear-gradient(to right, #848484, #5a868b)');
+    applyBackgroundStyle("linear-gradient(to right, #848484, #5a868b)");
   });
 
   document.getElementById("noneButton").addEventListener("click", function () {
-    applyBackgroundStyle('white');
+    applyBackgroundStyle("white");
   });
-  });
+});
 
-  function setLightMode() {
-    document.body.classList.add('light-mode');
-    document.body.classList.remove('dark-mode');
-    localStorage.setItem('theme', 'light-mode');
+function setLightMode() {
+  document.body.classList.add("light-mode");
+  document.body.classList.remove("dark-mode");
+  localStorage.setItem("theme", "light-mode");
 }
 
 function setDarkMode() {
-    document.body.classList.add('dark-mode');
-    document.body.classList.remove('light-mode');
-    localStorage.setItem('theme', 'dark-mode');
+  document.body.classList.add("dark-mode");
+  document.body.classList.remove("light-mode");
+  localStorage.setItem("theme", "dark-mode");
 }
