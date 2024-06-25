@@ -26,9 +26,9 @@
     <title>PingPost Profile</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
-    <script src="scripts/profile.js"></script>
+    <script src="scripts/profile.js" defer></script>
     <script>
-        // if (isLoggedIn() === false) window.location.replace("index.html");
+        if (isLoggedIn() === false) window.location.replace("index.html");
     </script>
 </head>
 
@@ -36,7 +36,12 @@
     <header class="bg text-white p-3">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-                <h1 style="font-style: italic;">PingPost</h1>
+                <h1 style="font-style: italic; text-emphasis-style: initial; 
+                text-shadow: 
+                  -1px -1px 0 #000000, 
+                  1px -1px 0 #000, 
+                  -1px 1px 0 #000, 
+                  1px 1px 0 #000;">PingPost</h1>
             </div>
             <div>
                 <button class="headerButtons" type="submit" onclick="window.location.href = 'posts.html'">Home</button>

@@ -49,6 +49,11 @@ document.addEventListener("DOMContentLoaded", function() {
         colDiv.appendChild(img);
         photoGallery.appendChild(colDiv);
     });
+    
+    const savedStyle = localStorage.getItem('backgroundStyle');
+    if (savedStyle) {
+        document.body.style.background = savedStyle;
+    }
 });
 
 function getLoginData() {

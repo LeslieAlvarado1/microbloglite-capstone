@@ -4,6 +4,11 @@ header {
   padding: 10px 0; /* Adjust padding if necessary */
 }
 
+footer {
+  background: linear-gradient( to right, #001b4df0, #4077d5b3);
+  color: #fff; /* Match this with class="text-white" */
+}
+
 .main-content {
   height: calc(100vh - 100px); /* Adjust according to the header and footer height */
   overflow-y: auto; /* Allow vertical scrolling */
