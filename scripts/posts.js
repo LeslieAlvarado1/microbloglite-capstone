@@ -305,9 +305,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.body.classList.add(savedTheme);
 
   const savedStyle = localStorage.getItem("backgroundStyle");
-  if (savedStyle) {
-    document.body.style.background = savedStyle;
-  }
+  document.body.style.background = savedStyle;
 
   document.getElementById("sadButton").addEventListener("click", function () {
     applyBackgroundStyle("linear-gradient(to right, #264050, #433470)");

@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "https://static.vecteezy.com/system/resources/thumbnails/026/189/534/small/stunning-mountain-and-river-background-ai-generated-photo.jpg",
     "https://i.ytimg.com/vi/S6UQ5G8K7Ys/maxresdefault.jpg",
     "https://static.vecteezy.com/system/resources/thumbnails/010/865/555/small/autumn-rural-landscape-farm-fields-and-forest-trees-with-orang-blue-sky-sunset-cartoon-banner-backdrop-farm-field-harvest-scenery-of-natural-countryside-with-sunrise-for-fall-season-background-vector.jpg",
-    "https://wallpapercave.com/wp/wp7039537.jpg"
+    "https://wallpapercave.com/wp/wp7039537.jpg",
   ];
 
   function getRandomGif() {
@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initially display a random GIF
   displayRandomGif();
 
- 
   setInterval(displayRandomGif, 3000);
 
   const photoGallery = document.getElementById("photoGallery");
@@ -59,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHZ2eXpvd21yaHI0aXhwbzhvdWpwZDZpcmF1aHIwdmdhM2VrcnkxNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fbHqxBmYngB1U9GTt9/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWxja2ZlZWk0NngwdTk3bWdxajlkNjBiM255d3Nwc3JkczZsaTA1dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TdMVH60kJvTMI/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWMweXh0bm9yM3dkc2hlaG05cnh5eGNlaDEzeGRzdm1oNHN2Nno2YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13JAvS2OyKJDry/giphy.gif",
-    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHo0eDAzdXZxaTNxODcxaHMwa2szOHp0OWdpNzd0bmx2ZGs1ZWd2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qLtUw3xX61PHiJKxWD/giphy.gif",   
+    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHo0eDAzdXZxaTNxODcxaHMwa2szOHp0OWdpNzd0bmx2ZGs1ZWd2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qLtUw3xX61PHiJKxWD/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm9idWpleWY5ZG01NDFoenY4bmRlMzZwa3lkemhqcGdldzBwZ3d3dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6qFFgNgextP9u/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG02cGNmY3M5MHN0cm1wcWdjOGxvczhqYmFpYnJyZm9yaTgxOXc1bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nIJca2o6axtMk/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExY25naWI3NWpqejk3anlkOTI2YzV4ZGtnNWpwOHM0dXNwMjh0c2c1eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/deOKie3HCHOAo/giphy.gif",
@@ -82,14 +81,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const savedStyle = localStorage.getItem("backgroundStyle");
-  if (savedStyle) {
-    document.body.style.background = savedStyle;
-  }
-  
-  // Apply saved theme on page load
-  const savedTheme = localStorage.getItem('theme') || 'light-mode';
-  document.body.classList.add(savedTheme);
+  document.body.style.background = savedStyle;
 
+  // Apply saved theme on page load
+  const savedTheme = localStorage.getItem("theme") || "light-mode";
+  document.body.classList.add(savedTheme);
 });
 
 function getLoginData() {
