@@ -26,12 +26,12 @@
     <title>PingPost Profile</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
-    <script src="scripts/profile.js" defer></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/profile.js"></script>
     <script>
         if (isLoggedIn() === false) window.location.replace("index.html");
     </script>
 </head>
-
 <body>
     <header class="bg text-white p-3">
         <div class="container d-flex justify-content-between align-items-center">
