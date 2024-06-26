@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   const fetchPosts = () => {
     fetch(
-      "http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts?limit=10&offset=0",
+      "http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts?limit=15&offset=0",
       {
         headers: {
           accept: "application/json",
