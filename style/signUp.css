@@ -1,17 +1,29 @@
 /* SignUp Page CSS */
 
 body {
-    background: linear-gradient( to right, #001b4df0, #4077d5b3);
+  background: linear-gradient( to right, #001b4df0, #4077d5b3);
 }
 
 h1 {
   color: #000;
 }
 
+h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #d63384;
+  width: 100%; /* Ensure the h2 tag takes up the full width */
+  text-align: center; /* Center the text horizontally */
+}
+
 ::placeholder {
   color: #afafaf !important; 
 }
 
+#main-header {
+  margin: 25px;
+}
 .overlayTitle {
   font-family: "Space Grotesk", sans-serif;
   font-size: 5rem;
@@ -20,6 +32,8 @@ h1 {
   z-index: 1;
   margin-bottom: 25px;
 }
+
+/* Container Styling */
 
 .container {
   max-width: 750px;
@@ -30,16 +44,6 @@ h1 {
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   text-align: center;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#main-header {
-  margin: 25px;
 }
 
 .home-button {
@@ -66,33 +70,6 @@ h1 {
   border-radius: 5px;
 
 }
-
-h2 {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #d63384;
-  width: 100%; /* Ensure the h2 tag takes up the full width */
-  text-align: center; /* Center the text horizontally */
-}
-
-/* Input fields */
-.form-control {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
-}
-
-.form-control:focus {
-  border-color: #d63384;
-  outline: none;
-}
-
-/* Submit button */
 #signUpButton {
   width: 100%;
   padding: 15px;
@@ -114,4 +91,22 @@ h2 {
 
 .button-container {
   text-align: center; /* Center inline or inline-block elements */
+}
+
+
+/* Input fields */
+
+.form-control {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #d63384;
+  outline: none;
 }
