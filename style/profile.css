@@ -1,3 +1,5 @@
+/* Profile Page CSS */
+
 header {
   background: linear-gradient(to right, #001b4df0, #4077d5b3);
   color: #fff; /* Match this with class="text-white" */
@@ -10,41 +12,22 @@ footer {
 }
 
 ::placeholder {
-  color: #afafaf !important; 
+  color: #afafaf !important;
 }
 
+h1 {
+  font-style: italic;
+  text-emphasis-style: initial;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
 
 .main-content {
-  height: calc(150vh - 30px); /* Adjust according to the header and footer height */
+  height: calc(
+    150vh - 30px
+  ); /* Adjust according to the header and footer height */
   overflow-y: auto; /* Allow vertical scrolling */
   padding: 20px; /* Optional: Add padding for better spacing */
-}
-
-.mood-board {
-  flex-grow: 1;
-}
-
-#photoGallery img {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#photoGallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.headerButtons {
-  background-color: #debbde; /* Example background color */
-  color: #000000; /* Text color */
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.headerButtons:hover {
-  background: linear-gradient(120deg, #ec74de, #c17bfe);
-  border-radius: 3px;
-  transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn {
@@ -62,7 +45,36 @@ footer {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Dark Mode */
+/* Header Button styling */
+
+.headerButtons {
+  background-color: #debbde;
+  color: #000000; /* Text color */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.headerButtons:hover {
+  background: linear-gradient(120deg, #ec74de, #c17bfe);
+  border-radius: 3px;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for post cards on hover */
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.331);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-mode .card:hover {
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.714);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Card Theme Modes */
+
 .dark-mode .card {
   background-color: #363333d2;
   color: white;
@@ -77,13 +89,17 @@ footer {
   color: black;
 }
 
-/* Styling for post cards on hover */
-.card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.331);
+/* Mood board styling */
+
+.mood-board {
+  flex-grow: 1;
+}
+
+#photoGallery img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.dark-mode .card:hover {
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.714);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+#photoGallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
