@@ -31,23 +31,20 @@
     <script src="scripts/auth.js"></script>
     <script src="scripts/posts.js"></script>
     <script>
-         if (isLoggedIn() === false) window.location.replace("index.html");
+        if (isLoggedIn() === false) window.location.replace("index.html");
     </script>
 </head>
 
 <body>
+    <!-- Header -->
     <header class="bg text-white p-3">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-                <h1 style="font-style: italic; text-emphasis-style: initial; 
-                text-shadow: 
-                  -1px -1px 0 #000000, 
-                  1px -1px 0 #000, 
-                  -1px 1px 0 #000, 
-                  1px 1px 0 #000;">PingPost</h1>
+                <h1>PingPost</h1>
             </div>
             <div class="d-flex">
-                <button class="headerButtons" type="button" onclick="setLightMode()" style="margin-right: 10px;">Light Mode</button>
+                <button class="headerButtons" type="button" onclick="setLightMode()" style="margin-right: 10px;">Light
+                    Mode</button>
                 <button class="headerButtons" type="button" onclick="setDarkMode()">Dark Mode</button>
             </div>
             <div>
@@ -57,7 +54,7 @@
             </div>
         </div>
     </header>
-
+    <!-- Page content-->
     <div class="container-fluid mt-4">
         <div class="row">
             <!-- Left Sidebar -->
@@ -82,22 +79,16 @@
                         <a href="profile.html" class="btn w-100">View Profile</a>
                     </div>
                 </div>
-
+                <!-- Mood Buttons -->
                 <div id="mood-buttons">
-                    <h5 style="text-align: center; text-emphasis-style: initial; 
-                    text-shadow: 
-                      -1px -1px 0 #ffffff, 
-                      1px -1px 0 #ffffff, 
-                      -1px 1px 0 #ffffff, 
-                      1px 1px 0 #ffffff;">Mood Buttons</h5>
-                    <button id="happyButton" class="btn w-100 mb-2">Cheerful</button>
-                    <button id="boredButton" class="btn w-100">Bored</button>
-                    <button id="sadButton" class="btn w-100 mb-2">Gloomy</button>
-                    <button id="noneButton" class="btn w-100 mb-2">Default</button>
+                    <h5 id="moodBtnTitle">Mood Buttons</h5>
+                    <button id="happyButton" class="btn w-100">Cheerful</button>
+                    <button id="boredButton" class="btn w-100">Earthy</button>
+                    <button id="sadButton" class="btn w-100">Mysterious</button>
+                    <button id="noneButton" class="btn w-100">Default</button>
                 </div>
             </div>
-
-            <!-- Main Content -->
+            <!-- Right Sidebar-->
             <div class="col-md-8 main-content">
                 <!-- New Post Input -->
                 <div class="card mb-4 new-post-card">
@@ -108,21 +99,16 @@
                     </div>
                 </div>
                 <!-- End of New Post Input -->
-
-                <!-- Posts will be inserted here -->
-                <h2 style="text-align: center; text-emphasis-style: initial; 
-                text-shadow: 
-                  -1px -1px 0 #ffffff, 
-                  1px -1px 0 #ffffff, 
-                  -1px 1px 0 #ffffff, 
-                  1px 1px 0 #ffffff;" >Posts</h2>
+                <!-- Existing posts content will be dynamically inserted here -->
+                <h2>Posts</h2>
                 <div id="postsContainer">
-                    <!-- Existing posts content will be dynamically inserted here -->
                 </div>
+                <!-- End of Existing posts content -->
             </div>
+            <!-- End of Right Sidebar-->
         </div>
     </div>
-
+    <!-- End of Page content-->
     <footer class="bg-light text-center py-3 mt-4">
         <p>&copy; 2024 PingPost. All rights reserved.</p>
     </footer>

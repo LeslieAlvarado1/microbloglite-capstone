@@ -1,6 +1,5 @@
-/* Existing CSS rules */
+/* Posts Page CSS  */
 
-html,
 body {
   height: 100%;
   margin: 0;
@@ -9,8 +8,8 @@ body {
 
 header {
   background: linear-gradient(to right, #001b4df0, #4077d5b3);
-  color: #fff; /* Match this with class="text-white" */
-  padding: 10px 0; /* Adjust padding if necessary */
+  color: #fff;
+  padding: 10px 0;
 }
 
 footer {
@@ -18,10 +17,24 @@ footer {
   color: #fff; /* Match this with class="text-white" */
 }
 
+h1 {
+  font-style: italic;
+  text-emphasis-style: initial;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+h2 {
+  text-align: center;
+  text-emphasis-style: initial;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
+}
+
 ::placeholder {
-    color: #9a9898 !important; 
-  }
-  
+  color: #9a9898 !important;
+}
+
 .card {
   background-color: rgba(255, 255, 255, 0.838);
 }
@@ -31,6 +44,40 @@ footer {
   overflow-y: auto;
 }
 
+.btn {
+  background-color: #debbde; /* Example background color */
+  color: #000000; /* Text color */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-right: 15px;
+}
+
+.btn:hover {
+  background: linear-gradient(120deg, #ec74de, #c17bfe);
+  color: #000000; /* Text color */
+  border-radius: 3px;
+  transform: scale(1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Button styling */
+
+.headerButtons {
+  background-color: #debbde;
+  color: #000000; /* Text color */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.headerButtons:hover {
+  background: linear-gradient(120deg, #ec74de, #c17bfe);
+  border-radius: 3px;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Add a Post Card */
+
 .new-post-card {
   position: sticky;
   top: 0;
@@ -38,7 +85,42 @@ footer {
   background-color: white;
 }
 
-/* Personalized Modes */
+/* User Posts Card */
+
+.liked {
+  background: linear-gradient(
+    120deg,
+    #ec74de,
+    #c17bfe
+  ); /* Change this to the desired color */
+  font-weight: bold;
+}
+
+.like-count {
+  margin-right: 15px; /* Add space between button and like count */
+}
+
+/* Styling for post cards on hover */
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.331);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-mode .card:hover {
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.714);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Personalized Theme Modes */
+
+#moodBtnTitle {
+  text-align: center;
+  text-emphasis-style: initial;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
+}
+
 #mood-buttons {
   margin-top: 50px;
 }
@@ -60,61 +142,4 @@ footer {
 .light-mode .card {
   background-color: rgba(255, 255, 255, 0.838);
   color: rgb(0, 0, 0);
-}
-
-/* Like button */
-.liked {
-  background: linear-gradient(
-    120deg,
-    #ec74de,
-    #c17bfe
-  ); /* Change this to the desired color */
-  font-weight: bold;
-}
-
-.like-count {
-  margin-right: 15px; /* Add space between button and like count */
-}
-
-/* Button styling */
-
-.headerButtons {
-  background-color: #debbde; /* Example background color */
-  color: #000000; /* Text color */
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.headerButtons:hover {
-  background: linear-gradient(120deg, #ec74de, #c17bfe);
-  border-radius: 3px;
-  transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.btn {
-  background-color: #debbde; /* Example background color */
-  color: #000000; /* Text color */
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-right: 15px;
-}
-
-.btn:hover {
-  background: linear-gradient(120deg, #ec74de, #c17bfe);
-  color: #000000; /* Text color */
-  border-radius: 3px;
-  transform: scale(1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Styling for post cards on hover */
-.card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.331);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.dark-mode .card:hover {
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.714);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
