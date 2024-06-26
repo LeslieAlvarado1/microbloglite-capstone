@@ -1,9 +1,5 @@
 /* Landing CSS for all pages */
 
-* {
-  box-sizing: border-box;
-}
-
 :root {
   font-size: 1rem;
 }
@@ -17,6 +13,10 @@ header {
   display: none;
 }
 
+::placeholder {
+  color: #afafaf !important; 
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -24,7 +24,7 @@ header {
 }
 
 #main-header {
-  margin: 15px;
+  margin: 30px;
 }
 
 .signup-button {
@@ -108,16 +108,7 @@ header {
   margin-top: 25px;
 }
 
-code {
-  text-emphasis-style: initial; 
-  text-shadow: 
-    -1px -1px 0 #000000, 
-    1px -1px 0 #000, 
-    -1px 1px 0 #000, 
-    1px 1px 0 #000;
-}
-
-#overlayTitle {
+.overlayTitle {
   font-family: "Space Grotesk", sans-serif;
   font-size: 5rem;
   font-weight: 400;

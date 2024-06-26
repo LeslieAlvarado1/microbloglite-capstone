@@ -31,10 +31,11 @@
 
 <body>
 
-    <header id="main-header">
-        <h1 style="text-align: center;">Welcome to <code>PingPost</code></h1>
-    </header>
 
+    <header id="main-header">
+        <h1 style="text-align: center;
+            color: #000;"><code style="color: white; font-size: 3rem;" class="overlayTitle">PingPost</code></h1>
+    </header>
     <main>
         <div class="container">
             <div class="form-container sign-up-container">
@@ -46,25 +47,24 @@
                     </div>
                     <div class="mb-3">
                         <label for="signup-fullname" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="signup-fullname" name="fullname" required>
+                        <input type="text" class="form-control" id="signup-fullname" name="fullname" style="text-align: center; font-size: 16px;" placeholder="Enter your full name" required>
                     </div>
                     <div class="mb-3">
                         <label for="signup-username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="signup-username" name="username" minlength="3"
-                            required>
+                        <input type="text" class="form-control" id="signup-username" name="username" minlength="3" style="text-align: center; font-size: 16px;" placeholder="Choose a username" required>
                     </div>
                     <div class="mb-3">
                         <label for="signup-email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="signup-email" name="email" required>
+                        <input type="email" class="form-control" id="signup-email" name="email" style="text-align: center; font-size: 16px;" placeholder="Enter your email address" required>
                     </div>
                     <div class="mb-3">
                         <label for="signup-password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="signup-password" name="password" minlength="6"
+                        <input type="password" class="form-control" id="signup-password" name="password" style="text-align: center; font-size: 16px;" placeholder="Enter at least 6 characters" minlength="6"
                             required>
                     </div>
                     <div class="mb-3">
                         <label for="signup-verify-password" class="form-label">Verify Password</label>
-                        <input type="password" class="form-control" id="signup-verify-password" name="verifyPassword"
+                        <input type="password" class="form-control" id="signup-verify-password" name="verifyPassword" style="text-align: center; font-size: 16px;" placeholder="Re-enter password"
                             minlength="6" required>
                     </div>
                     <div class="button-container">

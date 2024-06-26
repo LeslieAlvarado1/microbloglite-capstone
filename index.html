@@ -36,7 +36,7 @@
 
     <header id="main-header">
         <h1 style="text-align: center;
-            color: #000;">Welcome to <code>PingPost</code></h1>
+            color: #000;"><code style="color: white; font-size: 3rem;" class="overlayTitle">PingPost</code></h1>
     </header>
     <main>
         <div class="overlay-container">
@@ -46,7 +46,7 @@
                     Your browser does not support the video tag.
                 </video>
                 <div class="gradient-overlay"></div>
-                <h1 id="overlayTitle">PingPost</h1>
+                <h1 class="overlayTitle">PingPost</h1>
                 <h5>Quick Thoughts, Endless Connections. Your Digital Corner.</h5>
                 <div class="overlay-content">
                     <button class="overlayButtons" id="showContentButtonLogIn" type="button">Log In</button>
@@ -55,24 +55,25 @@
             </div>
         </div>
         <div class="container">
-            <!-- Existing content (login form, etc.) goes here -->
             <div class="form-container sign-in-container">
                 <form id="login">
                     <div class="header">
                         <h2>Log In</h2>
-                        <button type="button" class="signup-button" onclick="window.location.href='signup.html'">Sign Up</button>
+                        <button type="button" class="signup-button" onclick="window.location.href='signup.html'">Sign
+                            Up</button>
                     </div>
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" name="username" id="username" minlength="3" required>
+                        <input type="text" class="form-control" name="username"
+                            style="text-align: center; font-size: 16px;" placeholder="Enter Username" id="username"
+                            minlength="3" required>
                     </div>
-
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" minlength="6"
-                            required>
+                        <input type="password" class="form-control" name="password"
+                            style="text-align: center; font-size: 16px;" placeholder="Enter password" id="password"
+                            minlength="6" required>
                     </div>
-
                     <div class="button-container">
                         <button id="loginButton" type="submit">Login</button>
                     </div>

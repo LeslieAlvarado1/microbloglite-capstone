@@ -8,13 +8,17 @@ h1 {
   color: #000;
 }
 
-code {
-  text-emphasis-style: initial; 
-  text-shadow: 
-    -1px -1px 0 #000000, 
-    1px -1px 0 #000, 
-    -1px 1px 0 #000, 
-    1px 1px 0 #000;
+::placeholder {
+  color: #afafaf !important; 
+}
+
+.overlayTitle {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 5rem;
+  font-weight: 400;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  margin-bottom: 25px;
 }
 
 .container {
@@ -35,7 +39,7 @@ code {
 }
 
 #main-header {
-  margin: 15px;
+  margin: 25px;
 }
 
 .home-button {
