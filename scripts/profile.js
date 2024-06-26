@@ -80,12 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
     photoGallery.appendChild(colDiv);
   });
 
-  const savedStyle = localStorage.getItem("backgroundStyle");
-  document.body.style.background = savedStyle;
+// Apply saved theme on page load
+const savedTheme = localStorage.getItem("theme") || "light-mode";
+document.body.classList.add(savedTheme);
 
-  // Apply saved theme on page load
-  const savedTheme = localStorage.getItem("theme") || "light-mode";
-  document.body.classList.add(savedTheme);
+const savedStyle = localStorage.getItem("backgroundStyle");
+document.body.style.background = savedStyle;
 });
 
 function getLoginData() {
