@@ -1,3 +1,4 @@
+/* Sign Up Page JavaScript */
 "use strict";
 
 let signUp = document.getElementById("signup");

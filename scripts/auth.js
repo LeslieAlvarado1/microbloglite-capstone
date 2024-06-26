@@ -17,14 +17,12 @@ function getLoginData () {
     return JSON.parse(loginJSON) || {};
 }
 
-
 // You can use this function to see whether the current visitor is
 // logged in. It returns either `true` or `false`.
 function isLoggedIn () {
     const loginData = getLoginData();
     return Boolean(loginData.token);
 }
-
 
 // This function is already being used in the starter code for the
 // landing page, in order to process a user's login. READ this code,
@@ -60,7 +58,6 @@ function login (loginData) {
             return loginData;
         });
 }
-
 
 // This is the `logout()` function you will use for any logout button
 // which you may include in various pages in your app. Again, READ this

@@ -1,3 +1,5 @@
+/* Profile Page JavaScript */
+
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
