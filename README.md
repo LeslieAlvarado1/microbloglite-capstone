@@ -1,5 +1,20 @@
-# PingPost MicroBlog with MicroblogLite API!
+## PingPost_capstone3
 
-Don't forget to read the [*MicroblogLite* API docs](http://microbloglite.us-east-2.elasticbeanstalk.com/docs) and experiment with the API in *Postman!*
+Capstone 3 MicroBlog website.
 
-Practice and experimentation provide experience, and experience provides confidence.
+## About
+
+PingPost is designed to provide a seamless and engaging microblogging experience. Users can create, view, and interact with posts through a simple and intuitive interface. Leveraging the MicroblogLite API, PingPost ensures efficient data management and user interactions.
+
+## Features
+
+Microblogging Interface: Users can post short messages, read posts from others, and engage through likes and comments.
+
+API Integration: Utilizes the MicroblogLite API for backend functionality, ensuring robust data handling.
+
+Postman Testing: Experiment with API endpoints in Postman to understand and utilize the full capabilities of the MicroblogLite API.
+
+
+## Interesting JavaScript Code
+
+A notable feature of this project is the efficient handling of API requests and responses, enabling real-time updates and interactions. 
