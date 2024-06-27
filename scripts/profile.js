@@ -2,35 +2,49 @@
 
 "use strict";
 
+function getLoginData() {
+  const loginJSON = window.localStorage.getItem("login-data");
+  return JSON.parse(loginJSON) || {};
+}
+
+const loginData = getLoginData();
+
 document.addEventListener("DOMContentLoaded", function () {
   const usernameElement = document.getElementById("username");
   const bioElement = document.getElementById("bio");
-
+  const gifElement = document.getElementById("randomGif");
+  const photoGallery = document.getElementById("photoGallery");
+  
   const apiBaseURL = "http://microbloglite.us-east-2.elasticbeanstalk.com";
   const loginData = getLoginData();
 
+  // Apply saved theme on page load
+  const savedTheme = localStorage.getItem("theme") || "light-mode";
+  document.body.classList.add(savedTheme);
+
+  const savedStyle = localStorage.getItem("backgroundStyle");
+  document.body.style.background = savedStyle;
+
   const fetchUserInfo = (username) => {
-    return fetch(`${apiBaseURL}/api/users/${username}`, {
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer ${loginData.token}`,
-      },
-    }).then((response) => response.json());
+      return fetch(`${apiBaseURL}/api/users/${username}`, {
+          headers: {
+              accept: "application/json",
+              Authorization: `Bearer ${loginData.token}`,
+          },
+      }).then((response) => response.json());
   };
 
   const updateProfileSection = () => {
-    fetchUserInfo(loginData.username)
-      .then((userInfo) => {
-        usernameElement.textContent = userInfo.username;
-        bioElement.textContent = userInfo.bio || "No bio available.";
-      })
-      .catch((error) => console.error("Error fetching user info:", error));
+      fetchUserInfo(loginData.username)
+          .then((userInfo) => {
+              usernameElement.textContent = userInfo.username;
+              bioElement.textContent = userInfo.bio || "No bio available.";
+          })
+          .catch((error) => console.error("Error fetching user info:", error));
   };
 
   updateProfileSection();
 
-  // Random GIF Player
-  const gifElement = document.getElementById("randomGif");
   const gifSources = [
     "https://t3.ftcdn.net/jpg/07/08/45/24/360_F_708452458_SgLxoyB2qr7B0KWihnFU4isZ7rVK65sF.jpg",
     "https://t4.ftcdn.net/jpg/05/44/52/37/360_F_544523709_3DHt91LCFhfLVJCwvboKBmrS0hPFTJm2.jpg",
@@ -41,22 +55,19 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   function getRandomGif() {
-    const randomIndex = Math.floor(Math.random() * gifSources.length);
-    return gifSources[randomIndex];
+      const randomIndex = Math.floor(Math.random() * gifSources.length);
+      return gifSources[randomIndex];
   }
 
   function displayRandomGif() {
-    const randomGif = getRandomGif();
-    gifElement.src = randomGif;
+      const randomGif = getRandomGif();
+      gifElement.src = randomGif;
   }
 
-  // Initially display a random GIF
   displayRandomGif();
-
   setInterval(displayRandomGif, 3000);
 
-  const photoGallery = document.getElementById("photoGallery");
-  const photoUrls = [
+ const photoUrls = [
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHZ2eXpvd21yaHI0aXhwbzhvdWpwZDZpcmF1aHIwdmdhM2VrcnkxNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fbHqxBmYngB1U9GTt9/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWxja2ZlZWk0NngwdTk3bWdxajlkNjBiM255d3Nwc3JkczZsaTA1dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TdMVH60kJvTMI/giphy.gif",
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWMweXh0bm9yM3dkc2hlaG05cnh5eGNlaDEzeGRzdm1oNHN2Nno2YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13JAvS2OyKJDry/giphy.gif",
@@ -70,50 +81,43 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   photoUrls.forEach((url, index) => {
-    const colDiv = document.createElement("div");
-    colDiv.className = "col-6 mb-4 d-flex justify-content-center";
+      const colDiv = document.createElement("div");
+      colDiv.className = "col-6 mb-4 d-flex justify-content-center";
 
-    const img = document.createElement("img");
-    img.src = url;
-    img.className = "img-fluid";
-    img.alt = `Photo ${index + 1}`;
+      const img = document.createElement("img");
+      img.src = url;
+      img.className = "img-fluid";
+      img.alt = `Photo ${index + 1}`;
 
-    colDiv.appendChild(img);
-    photoGallery.appendChild(colDiv);
+      colDiv.appendChild(img);
+      photoGallery.appendChild(colDiv);
   });
 
-// Apply saved theme on page load
-const savedTheme = localStorage.getItem("theme") || "light-mode";
-document.body.classList.add(savedTheme);
+  function getLoginData() {
+      const loginJSON = window.localStorage.getItem("login-data");
+      return JSON.parse(loginJSON) || {};
+  }
 
-const savedStyle = localStorage.getItem("backgroundStyle");
-document.body.style.background = savedStyle;
+  function isLoggedIn() {
+      const loginData = getLoginData();
+      return Boolean(loginData.token);
+  }
+
+  function logout() {
+      const loginData = getLoginData();
+      const apiBaseURL = "http://microbloglite.us-east-2.elasticbeanstalk.com";
+
+      fetch(`${apiBaseURL}/auth/logout`, {
+          method: "GET",
+          headers: {
+              Authorization: `Bearer ${loginData.token}`,
+          },
+      })
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .finally(() => {
+              window.localStorage.removeItem("login-data");
+              window.location.assign("/");
+          });
+  }
 });
-
-function getLoginData() {
-  const loginJSON = window.localStorage.getItem("login-data");
-  return JSON.parse(loginJSON) || {};
-}
-
-function isLoggedIn() {
-  const loginData = getLoginData();
-  return Boolean(loginData.token);
-}
-
-function logout() {
-  const loginData = getLoginData();
-  const apiBaseURL = "http://microbloglite.us-east-2.elasticbeanstalk.com";
-
-  fetch(`${apiBaseURL}/auth/logout`, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${loginData.token}`,
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .finally(() => {
-      window.localStorage.removeItem("login-data");
-      window.location.assign("/");
-    });
-}
