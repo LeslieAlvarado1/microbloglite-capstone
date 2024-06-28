@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   displayRandomGif();
-  setInterval(displayRandomGif, 3000);
+  setInterval(displayRandomGif, 2000);
 
  const photoUrls = [
     "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHZ2eXpvd21yaHI0aXhwbzhvdWpwZDZpcmF1aHIwdmdhM2VrcnkxNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fbHqxBmYngB1U9GTt9/giphy.gif",
@@ -92,32 +92,4 @@ document.addEventListener("DOMContentLoaded", function () {
       colDiv.appendChild(img);
       photoGallery.appendChild(colDiv);
   });
-
-  function getLoginData() {
-      const loginJSON = window.localStorage.getItem("login-data");
-      return JSON.parse(loginJSON) || {};
-  }
-
-  function isLoggedIn() {
-      const loginData = getLoginData();
-      return Boolean(loginData.token);
-  }
-
-  function logout() {
-      const loginData = getLoginData();
-      const apiBaseURL = "http://microbloglite.us-east-2.elasticbeanstalk.com";
-
-      fetch(`${apiBaseURL}/auth/logout`, {
-          method: "GET",
-          headers: {
-              Authorization: `Bearer ${loginData.token}`,
-          },
-      })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .finally(() => {
-              window.localStorage.removeItem("login-data");
-              window.location.assign("/");
-          });
-  }
 });
