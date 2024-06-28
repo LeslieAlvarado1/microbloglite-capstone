@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fetchUserInfo(loginData.username)
           .then((userInfo) => {
               usernameElement.textContent = userInfo.username;
-              bioElement.textContent = userInfo.bio || "No bio available.";
+              bioElement.textContent = userInfo.bio || "#TeamCaffeine #TeamNoSleep";
           })
           .catch((error) => console.error("Error fetching user info:", error));
   };

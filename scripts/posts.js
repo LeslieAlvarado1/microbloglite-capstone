@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       .then((userInfo) => {
         document.getElementById("username").textContent = userInfo.username;
         document.getElementById("bio").textContent =
-          userInfo.bio || "No bio available.";
+          userInfo.bio || "#TeamCaffeine #TeamNoSleep";
       })
       .catch((error) => console.error("Error fetching user info:", error));
   };
