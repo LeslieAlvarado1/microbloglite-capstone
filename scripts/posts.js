@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   fetchPosts();
   updateProfileSection();
 
-  // Handle new post submission
+  // New post submission
   document.getElementById("postButton").addEventListener("click", () => {
     const postText = document.getElementById("newPostText").value;
     if (postText.trim()) {
@@ -284,6 +284,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     statusModal.show();
   }
 
+  // Apply background style to storage formy profile page
   function applyBackgroundStyle(style) {
     document.body.style.background = style;
     localStorage.setItem("backgroundStyle", style);
