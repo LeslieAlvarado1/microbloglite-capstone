@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     if (post.likes.some((like) => like.username === loginData.username)) {
       likeButton.classList.add("liked");
     }
-    likeButton.innerHTML = '<i class="bi bi-heart" id="likes"></i> Like';
+    likeButton.innerHTML = '<i class="bi bi-heart" id="likes"></i> Liked';
     const likeCount = document.createElement("span");
     likeCount.textContent = post.likes.length;
 
