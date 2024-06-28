@@ -46,6 +46,10 @@ function login (loginData) {
         .then(loginData => {
             if (loginData.message === "Invalid username or password") {
                 console.error(loginData)
+
+                // Display a modal to inform the user about the error
+                showModal('Error', 'Invalid username or password. Please try again.', true);
+
                 // Here is where you might want to add an error notification 
                 // or other visible indicator to the page so that the user is  
                 // informed that they have entered the wrong login info.
@@ -88,3 +92,24 @@ function logout() {
             window.location.assign("/");  // redirect back to landing page
         });
 }
+
+ // Modal Code
+ function showModal(title, message, redirect = false) {
+    document.getElementById("statusModalLabel").innerText = title;
+    document.getElementById("statusModalBody").innerText = message;
+    
+    let statusModal = new bootstrap.Modal(
+      document.getElementById("statusModal"),
+      {
+        keyboard: false,
+      }
+    );
+
+    if (redirect) {
+      document.getElementById('statusModal').addEventListener('hidden.bs.modal', function () {
+          window.location.assign("index.html");
+      }, { once: true });
+    }
+    
+    statusModal.show();
+  }
